@@ -45,7 +45,7 @@ export const ContactUs: React.FC = () => {
   }
 
   return (
-    <section id="contact" className="py-16 bg-gradient-to-b from-background to-background/50">
+    <section id="contact" className="py-16 hero-background/50">
       <div className="container mx-auto px-4">
         <motion.h2 
           className="text-5xl font-bold text-text mb-12 text-center"
