@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-black text-off-white py-8">
+    <footer className="hero-background text-off-white py-8">
       <div className="container mx-auto flex flex-col items-center">
         <Image 
           src="/logo.svg" 
