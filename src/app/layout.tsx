@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { ReactNode } from 'react';
 import { Inter } from "next/font/google";
+import { cn } from "@/lib/utils";
 import "/Users/bytes/Documents/GitHub/darkgpt/styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -12,14 +14,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+type RootLayoutProps = {
+  children: ReactNode;
+};
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <head />
+      <body
+        className={cn(
+          "min-h-screen bg-background font-secondary antialiased",
+          inter.className
+        )}
+      >
+        {children}
+      </body>
     </html>
   );
 }

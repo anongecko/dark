@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export const HeroSection: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -35,8 +36,7 @@ export const HeroSection: React.FC = () => {
         this.size = Math.random() * 2 + 0.5;
         this.speedX = Math.random() * 1 - 0.5;
         this.speedY = Math.random() * 1 - 0.5;
-        this.color = `hsl(${Math.random() * 60 + 180}, 100%, 50%)`;
-      }
+        this.color = `hsl(${Math.random() * 20 + 340}, 100%, ${Math.random() * 30 + 20}%)`;      }
 
       update(canvas: HTMLCanvasElement) {
         this.x += this.speedX;
@@ -69,7 +69,7 @@ export const HeroSection: React.FC = () => {
     };
 
     const animate = () => {
-      ctx.fillStyle = 'rgba(10, 10, 20, 0.1)';
+      ctx.fillStyle = 'rgba(20, 0, 0, 0.1)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       particles.forEach((particle) => {
         particle.update(canvas);
@@ -98,33 +98,40 @@ export const HeroSection: React.FC = () => {
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-gray-900 to-black">
       <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full" />
       <motion.div 
-        className="relative z-10 text-center"
+        className="relative z-10 text-center flex flex-col items-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
+        <Image 
+          src="/logo.svg" 
+          alt="DarkGPT Logo" 
+          width={200} 
+          height={200} 
+          className="mb-4"
+        />
         <motion.h1 
-          className="text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 mb-4"
+          className="text-8xl font-bold text-crimson mb-2 font-primary"
           initial={{ scale: 0.9 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          NightGPT
+          DarkGPT
         </motion.h1>
         <motion.p 
-          className="text-2xl text-gray-300 mb-8"
+          className="text-xl text-white mb-8 font-secondary"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
         >
-          Advanced Cyber Security AI
+          Advanced • Secure • Intelligent • Vigilant • Adaptive
         </motion.p>
         <motion.button 
-          className="px-8 py-4 text-lg font-medium text-white bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full hover:from-cyan-600 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition-all duration-300 ease-in-out transform hover:scale-105"
+          className="px-8 py-4 text-lg font-primary text-white bg-crimson rounded-full hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-crimson transition-all duration-300 ease-in-out transform hover:scale-105"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Explore NightGPT
+          Buy Now
         </motion.button>
       </motion.div>
     </section>
