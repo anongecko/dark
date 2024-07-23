@@ -58,6 +58,9 @@ const config = {
           DEFAULT: "hsl(0, 0%, 10%)",
           foreground: "hsl(0, 0%, 100%)",
         },
+        boxShadow: {
+          'crimson-upper-right': '2px -2px 5px 0 rgba(220, 20, 60, 0.3)',
+        },
         crimson: "#f10000",
       },
       borderRadius: {
