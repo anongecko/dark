@@ -16,12 +16,20 @@ export const Benefits = () => {
           {benefits.map((benefit, index) => (
             <div 
               key={index} 
-              className="bg-background p-6 rounded-md shadow-crimson-upper-right h-96 flex flex-col justify-center items-center transition-transform duration-200 ease-in-out hover:scale-110"
+              className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-[10px] shadow-lg border border-gray-700 h-[16.8rem] w-[70%] mx-auto flex flex-col justify-center items-center transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-xl"
             >
               <h3 className="text-xl font-semibold text-crimson mb-2 font-primary text-center">{benefit.title}</h3>
               <p className="text-text text-center">{benefit.description}</p>
             </div>
           ))}
+        </div>
+        <div className="flex justify-center mt-8 space-x-4">
+          <button className="px-6 py-2 text-sm font-medium text-white bg-transparent border-2 border-white rounded-full hover:scale-110 active:scale-100 transition-transform duration-200 ease-in-out">
+            Contact Us
+          </button>
+          <button className="px-6 py-2 text-sm font-medium text-white bg-crimson rounded-full hover:scale-110 active:scale-100 transition-transform duration-200 ease-in-out">
+            Buy DarkGPT
+          </button>
         </div>
       </div>
     </section>

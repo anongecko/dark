@@ -4,14 +4,14 @@ import { HeroSection } from '../components/ui/HeroSection';
 import { AboutUs } from '../components/ui/AboutUs';
 import { Benefits } from '../components/ui/Benefits';
 import { Capabilities } from '../components/ui/Capabilities';
-import { Principles } from '../components/ui/Principles';
+import { Pricing } from '../components/ui/Pricing';
 import { ContactUs } from '../components/ui/ContactUs';
 import { FAQ } from '../components/ui/FAQ';
 import { Footer } from '../components/ui/Footer';
 import { NoScript } from '../components/ui/NoScript';
 import { Header } from '../components/ui/Header';
 
-export default function Home() {
+export default function Home() { 
   return (
     <>
       <Head>
@@ -26,9 +26,9 @@ export default function Home() {
         <AboutUs />
         <Benefits />
         <Capabilities />
-        <Principles />
-        <ContactUs />
+        <Pricing />
         <FAQ />
+        <ContactUs />
       </main>
       <Footer />
     </>
