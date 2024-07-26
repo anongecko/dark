@@ -1,4 +1,4 @@
-"use client"
+'use client' // This Header component will now be a Client Component
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
@@ -14,7 +14,8 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 hero-background backdrop-blur-sm">      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 hero-background backdrop-blur-sm">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <Image src="/logo.svg" alt="DarkGPT Logo" width={40} height={40} />
           <Link href="/" className="text-2xl font-bold text-primary">
@@ -39,9 +40,11 @@ export const Header: React.FC = () => {
           </button>
         </nav>
         <div className="flex items-center space-x-4">
-          <Button variant="outline" className="rounded-full">
-            Sign In
-          </Button>
+          <Link href="/sign-in">
+            <Button variant="outline" className="rounded-full flex justify-center items-center">
+              Sign In
+            </Button>
+          </Link>
           <Button className="rounded-full">
             Get Started
           </Button>

@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import react from 'react';
+import React from 'react'; // Changed 'react' to 'React'
 import { HeroSection } from '../components/ui/HeroSection';
 import { AboutUs } from '../components/ui/AboutUs';
 import { Benefits } from '../components/ui/Benefits';
