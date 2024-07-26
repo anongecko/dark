@@ -1,7 +1,14 @@
 "use client";
 
-import ClientSignInPage from './ClientSignInPage';
+import { useForm, FormProvider } from "react-hook-form";
+import ClientSignInPage from "./ClientSignInPage";
 
 export default function SignInPage() {
-  return <ClientSignInPage />; // No need for dynamic import here
+  const methods = useForm();
+
+  return (
+    <FormProvider {...methods}>
+      <ClientSignInPage />
+    </FormProvider>
+  );
 }
