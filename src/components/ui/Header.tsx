@@ -4,10 +4,9 @@ import React, { useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
-import { XMRPriceDisplay } from './XMRPriceDisplay';
 
 // Export the Header component
-export default function Header() {
+export function Header() {
   const scrollToSection = useCallback((id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -62,7 +61,6 @@ export default function Header() {
           </button>
         </nav>
         <div className="flex items-center space-x-4">
-          <XMRPriceDisplay />
           <Link href="/sign-in">
             <Button variant="outline" className="rounded-full flex justify-center items-center">
               Sign In
