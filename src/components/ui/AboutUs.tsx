@@ -25,8 +25,8 @@ export const AboutUs = () => {
             </p>
 
             <div className="flex space-x-4">
-              <Button variant="outline">Contact Us</Button>
-              <Button>Get Started</Button>
+              <Button variant="outline" className="rounded-full flex justify-center items-center hover:scale-110 active:scale-100 transition-transform duration-200 ease-in-out">Contact Us</Button>
+              <Button className="rounded-full flex justify-center items-center hover:scale-110 active:scale-100 transition-transform duration-200 ease-in-out">Get Started</Button>
             </div>
           </div>
         </div>

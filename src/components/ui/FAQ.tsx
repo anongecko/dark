@@ -3,6 +3,7 @@
 import React from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 const faqData = [
   {
@@ -57,6 +58,15 @@ export const FAQ: React.FC = () => {
               </AccordionItem>
             ))}
           </Accordion>
+        </motion.div>
+        <motion.div 
+          className="flex justify-center space-x-4 mt-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <Button variant="outline" className="rounded-full flex justify-center items-center hover:scale-110 active:scale-100 transition-transform duration-200 ease-in-out">Contact Us</Button>
+          <Button className="rounded-full flex justify-center items-center hover:scale-110 active:scale-100 transition-transform duration-200 ease-in-out">Get Started</Button>
         </motion.div>
       </div>
     </section>

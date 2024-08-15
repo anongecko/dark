@@ -1,3 +1,8 @@
+"use client";
+
+import React from "react";
+import { Button } from "@/components/ui/button";
+
 export const Capabilities = () => {
   const capabilities = [
     "Advanced threat detection and prevention",
@@ -16,7 +21,7 @@ export const Capabilities = () => {
     <section id="capabilities" className="py-16 hero-background">
       <div className="container mx-auto px-4">
         <h2 className="text-5xl font-bold text-crimson mb-8 text-center font-primary">DarkGPT Capabilities</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto mb-8">
           {capabilities.map((capability, index) => (
             <div key={index} className="flex items-center">
               <svg className="w-8 h-8 mr-3" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -37,6 +42,10 @@ export const Capabilities = () => {
               <span className="text-white font-secondary">{capability}</span>
             </div>
           ))}
+        </div>
+        <div className="flex justify-center space-x-4">
+          <Button variant="outline" className="rounded-full flex justify-center items-center hover:scale-110 active:scale-100 transition-transform duration-200 ease-in-out">Contact Us</Button>
+          <Button className="rounded-full flex justify-center items-center hover:scale-110 active:scale-100 transition-transform duration-200 ease-in-out">Get Started</Button>
         </div>
       </div>
     </section>

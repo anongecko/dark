@@ -1,3 +1,9 @@
+"use client";
+
+import React from 'react';
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+
 export const Pricing = () => {
   const plans = [
     { 
@@ -38,7 +44,12 @@ export const Pricing = () => {
         <h2 className="text-5xl font-bold text-crimson mb-8 text-center font-primary">Pricing</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {plans.map((plan, index) => (
-            <div key={index} className="bg-gradient-to-br from-red-900 to-red-950 p-6 rounded-lg shadow-lg border-2 border-crimson flex flex-col h-[450px]">
+            <motion.div
+              key={index}
+              className="bg-gradient-to-br from-red-900 to-red-950 p-6 rounded-2xl shadow-lg border-2 border-crimson flex flex-col h-[500px]"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+            >
               <div className="text-center mb-4">
                 <h3 className="text-4xl font-bold text-white mb-2">
                   {plan.price}<span className="text-xl font-normal">/month</span>
@@ -61,7 +72,13 @@ export const Pricing = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+              <Button 
+                variant="outline" 
+                className="mt-4 rounded-full flex justify-center items-center hover:scale-105 active:scale-100 transition-transform duration-200 ease-in-out"
+              >
+                Get Started
+              </Button>
+            </motion.div>
           ))}
         </div>
       </div>

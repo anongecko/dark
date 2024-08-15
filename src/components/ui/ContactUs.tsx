@@ -44,7 +44,7 @@ export const ContactUs: React.FC = () => {
             />
             <Button 
               onClick={copyToClipboard}
-              className="w-full flex items-center justify-center gap-2"
+              className="w-full flex items-center justify-center gap-2 rounded-full hover:scale-110 active:scale-100 transition-transform duration-200 ease-in-out"
             >
               <Copy className="h-4 w-4" />
               Copy to Clipboard

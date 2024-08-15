@@ -1,4 +1,7 @@
+import { Button } from '../ui/button'; // If you have a shared Button component
+
 export const Benefits = () => {
+
   const benefits = [
     { title: "24/7 Protection", description: "Round-the-clock monitoring and threat detection" },
     { title: "AI-Powered", description: "Leveraging advanced machine learning algorithms" },
@@ -24,12 +27,8 @@ export const Benefits = () => {
           ))}
         </div>
         <div className="flex justify-center mt-8 space-x-4">
-          <button className="px-6 py-2 text-sm font-medium text-white bg-transparent border-2 border-white rounded-full hover:scale-110 active:scale-100 transition-transform duration-200 ease-in-out">
-            Contact Us
-          </button>
-          <button className="px-6 py-2 text-sm font-medium text-white bg-crimson rounded-full hover:scale-110 active:scale-100 transition-transform duration-200 ease-in-out">
-            Buy DarkGPT
-          </button>
+              <Button variant="outline" className="rounded-full flex justify-center items-center hover:scale-110 active:scale-100 transition-transform duration-200 ease-in-out">Contact Us</Button>
+              <Button className="rounded-full flex justify-center items-center hover:scale-110 active:scale-100 transition-transform duration-200 ease-in-out">Get Started</Button>
         </div>
       </div>
     </section>
