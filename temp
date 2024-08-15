@@ -1,0 +1,187 @@
+# Alacritty Configuration (TOML) with Warp-like Tmux Keybindings (Ctrl+Space Prefix)
+
+[window]
+dimensions = { columns = 160, lines = 48 }
+opacity = 0.95
+dynamic_title = true
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[font]
+normal = { family = "Monaco", style = "Regular" }  # Using Monaco font
+bold = { family = "Monaco", style = "Bold" }
+italic = { family = "Monaco", style = "Italic" }
+bold_italic = { family = "Monaco", style = "Bold Italic" }
+size = 11.0
+
+[colors]
+primary = { background = "#282c34", foreground = "#abb2bf" }
+normal = { black = "#282c34", red = "#e06c75", green = "#98c379", yellow = "#e5c07b", blue = "#61afef", magenta = "#c678dd", cyan = "#56b6c2", white = "#abb2bf" }
+bright = { black = "#5c6370", red = "#e06c75", green = "#98c379", yellow = "#d19a66", blue = "#61afef", magenta = "#c678dd", cyan = "#56b6c2", white = "#ffffff" }
+dim = { black = "#21252b", red = "#be5046", green = "#98c379", yellow = "#d19a66", blue = "#56b6c2", magenta = "#c678dd", cyan = "#4699a2", white = "#9ca0a4" }
+
+# Warp-like Tmux Keybindings (Ctrl+Space Prefix)
+
+[[keyboard.bindings]]
+key = "N"
+mods = "Command|Shift"
+chars = "\x0c"  # New Window (Corrected escape sequence)
+
+[[keyboard.bindings]]
+key = "T"
+mods = "Command"
+chars = "\x0c"  # New Tab (Corrected escape sequence)
+
+[[keyboard.bindings]]
+key = "W"
+mods = "Command"
+chars = "\x0d"  # Close Pane/Window
+
+[[keyboard.bindings]]
+key = "Left"
+mods = "Command"
+chars = "\x00p" # Previous Tab
+
+[[keyboard.bindings]]
+key = "Right"
+mods = "Command"
+chars = "\x00n" # Next Tab
+
+[[keyboard.bindings]]
+key = "Left"
+mods = "Alt|Command"
+chars = "\x00h"  # Left Pane
+
+[[keyboard.bindings]]
+key = "Down"
+mods = "Alt|Command"
+chars = "\x00j"  # Down Pane
+
+[[keyboard.bindings]]
+key = "Up"
+mods = "Alt|Command"
+chars = "\x00k"  # Up Pane
+
+[[keyboard.bindings]]
+key = "Right"
+mods = "Alt|Command"
+chars = "\x00l"  # Right Pane
+
+# Tab Switching (up to 9 tabs)
+[[keyboard.bindings]]
+key = "1"
+mods = "Command"
+chars = "\x001"
+
+[[keyboard.bindings]]
+key = "2"
+mods = "Command"
+chars = "\x002"
+
+[[keyboard.bindings]]
+key = "3"
+mods = "Command"
+chars = "\x003"
+
+[[keyboard.bindings]]
+key = "4"
+mods = "Command"
+chars = "\x004"
+
+[[keyboard.bindings]]
+key = "5"
+mods = "Command"
+chars = "\x005"
+
+[[keyboard.bindings]]
+key = "6"
+mods = "Command"
+chars = "\x006"
+
+[[keyboard.bindings]]
+key = "7"
+mods = "Command"
+chars = "\x007"
+
+[[keyboard.bindings]]
+key = "8"
+mods = "Command"
+chars = "\x008"
+
+[[keyboard.bindings]]
+key = "9"
+mods = "Command"
+chars = "\x009"
+
+# Other Warp-like Actions
+[[keyboard.bindings]]
+key = "F"
+mods = "Command"
+chars = "\x00/"  # Search (tmux)
+
+[[keyboard.bindings]]
+key = "R"
+mods = "Command"
+command = { program = "tmux", args = ["send-keys", "C-l"] } # Clear Screen
+
+# Font Size Control (Alacritty's built-in actions)
+[[keyboard.bindings]]
+key = "Minus"
+mods = "Command"
+action = "DecreaseFontSize" 
+
+[[keyboard.bindings]]
+key = "Equals"
+mods = "Command"
+action = "IncreaseFontSize"
+
+[[keyboard.bindings]]
+key = "0"
+mods = "Command"
+action = "ResetFontSize"
+
+=============================================
+# Prefix Key (like Warp)
+unbind C-b       # Unbind default tmux prefix
+set -g prefix C-Space  # Set prefix to Ctrl+Space
+bind-key C-Space send-prefix   # Send prefix again on double-tap
+
+# Warp-like Window and Tab Creation
+bind c new-window -c "#{pane_current_path}"  
+bind % split-window -h -c "#{pane_current_path}"
+bind '"' split-window -v -c "#{pane_current_path}"  
+
+# Warp-like Tab Switching (potentially remapped)
+bind | last-window                                  
+bind -r C-Space select-window -t :-       # Previous tab 
+bind -r C-s select-window -t :+       # Next tab
+
+# Warp-like Pane Navigation
+bind -r h select-pane -L              
+bind -r j select-pane -D              
+bind -r k select-pane -U              
+bind -r l select-pane -R              
+
+# Seamless Window/Pane Switching
+bind -r C-h swap-window -t -1         
+bind -r C-l swap-window -t +1         
+bind -r C-j swap-pane -D               
+bind -r C-k swap-pane -U               
+
+# Warp-like Clear Screen
+bind C-l send-keys 'C-l'              # Clear screen (no change)
+
+# Mouse Mode (for Warp-like clicking)
+set-window-option -g mode-mouse on
+set -g mouse on
+
+# Status Bar Customization (optional)
+set -g status-bg default
+set -g status-fg white
+set -g window-status-current-bg brightblue
+set -g window-status-current-fg black
+set  
+ -g window-status-fg cyan
+

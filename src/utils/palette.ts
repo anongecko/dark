@@ -4,9 +4,9 @@ export const generatePalette = (baseColor: string) => {
   const hsl = hexToHSL(baseColor);
   return {
     primary: baseColor,
-    secondary: hslToHex(hsl.h, hsl.s, Math.max(0, hsl.l - 10)),
-    accent: hslToHex((hsl.h + 180) % 360, hsl.s, hsl.l),
-    background: hslToHex(hsl.h, Math.max(0, hsl.s - 30), Math.max(0, hsl.l - 50)),
+    secondary: hslToHex(hsl.h, Math.min(100, hsl.s + 15), Math.max(0, hsl.l - 15)), // Increased saturation adjustment
+    accent: hslToHex((hsl.h + 180) % 360, hsl.s, Math.min(100, hsl.l + 10)),       // Limited accent lightness to avoid white
+    background: hslToHex(hsl.h, Math.max(0, hsl.s - 30), Math.max(0, hsl.l - 50)), 
     text: hslToHex(hsl.h, Math.min(100, hsl.s + 10), Math.min(100, hsl.l + 50)),
   };
 };

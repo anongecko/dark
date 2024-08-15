@@ -1,7 +1,7 @@
-import type { Config } from "tailwindcss"
-const { fontFamily } = require("tailwindcss/defaultTheme")
+import type { Config } from "tailwindcss";
+import defaultTheme from 'tailwindcss/defaultTheme';
 
-const config = {
+const config: Config = {
   darkMode: ["class"],
   content: [
     './pages/**/*.{ts,tsx}',
@@ -20,46 +20,44 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
-        primary: ["Primary", ...fontFamily.sans],
-        secondary: ["Secondary", ...fontFamily.sans],
+        sans: ["var(--font-sans)", ...(defaultTheme.fontFamily.sans as string[])],
+        primary: ["Primary", ...(defaultTheme.fontFamily.sans as string[])],
+        secondary: ["Secondary", ...(defaultTheme.fontFamily.sans as string[])],
       },
       colors: {
-        border: "hsl(0, 0%, 20%)",
-        input: "hsl(0, 0%, 25%)",
-        ring: "hsl(0, 100%, 50%)",
-        background: "hsl(0, 0%, 0%)",
-        foreground: "hsl(0, 0%, 100%)",
+        background: "#000",
+        foreground: "#FFF",
+        border: "#333",
+        input: "#404040",
+        ring: "#f10101",
+
         primary: {
-          DEFAULT: "hsl(0, 100%, 50%)",
-          foreground: "hsl(0, 0%, 100%)",
+          DEFAULT: "#f10101",
+          foreground: "#FFF",
         },
         secondary: {
-          DEFAULT: "hsl(0, 0%, 20%)",
-          foreground: "hsl(0, 0%, 100%)",
+          DEFAULT: "#333",
+          foreground: "#FFF",
         },
         destructive: {
-          DEFAULT: "hsl(0, 100%, 40%)",
-          foreground: "hsl(0, 0%, 100%)",
+          DEFAULT: "#b20000",
+          foreground: "#FFF",
         },
         muted: {
-          DEFAULT: "hsl(0, 0%, 15%)",
-          foreground: "hsl(0, 0%, 70%)",
+          DEFAULT: "#262626",
+          foreground: "#AAA",
         },
         accent: {
-          DEFAULT: "hsl(0, 100%, 50%)",
-          foreground: "hsl(0, 0%, 100%)",
+          DEFAULT: "#b20000",
+          foreground: "#FFF",
         },
         popover: {
-          DEFAULT: "hsl(0, 0%, 10%)",
-          foreground: "hsl(0, 0%, 100%)",
+          DEFAULT: "#1A1A1A",
+          foreground: "#FFF",
         },
         card: {
-          DEFAULT: "hsl(0, 0%, 10%)",
-          foreground: "hsl(0, 0%, 100%)",
-        },
-        boxShadow: {
-          'crimson-upper-right': '2px -2px 5px 0 rgba(220, 20, 60, 0.3)',
+          DEFAULT: "#1A1A1A",
+          foreground: "#FFF",
         },
         crimson: "#f10000",
       },
@@ -85,6 +83,6 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+};
 
-export default config
+export default config;
