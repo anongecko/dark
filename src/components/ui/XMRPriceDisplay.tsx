@@ -24,7 +24,7 @@ export const XMRPriceDisplay: React.FC = () => {
 
   return (
     <div className="text-sm font-medium text-white">
-      {price ? `XMR Price: $${price.toFixed(2)}` : 'Loading...'}
+      {price ? `XMR: $${price.toFixed(2)}` : 'Loading...'}
     </div>
   );
 };

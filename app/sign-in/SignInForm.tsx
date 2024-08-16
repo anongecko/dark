@@ -36,41 +36,44 @@ export default function SignInForm() {
   }
 
   return (
-    <Form form={form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <FormField
-          control={form.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input {...field} placeholder="Enter your username" className="bg-gray-800 text-white border-gray-700" />
-              </FormControl>
-              <FormMessage className="text-crimson" />
-            </FormItem>
-          )}
-        />
+    <div className="max-w-md mx-auto p-8 bg-gray-935 rounded-lg shadow-lg">
+      <h2 className="text-2xl text-crimson mb-4 justify-center font-primary">Sign In</h2>
+      <Form form={form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <FormField
+            control={form.control}
+            name="username"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-crimson" font-secondary>Username</FormLabel>
+                <FormControl>
+                  <Input {...field} placeholder="Enter your username" className="bg-gray-800 text-white border-gray-700" />
+                </FormControl>
+                <FormMessage className="text-crimson" />
+              </FormItem>
+            )}
+          />
 
-        <FormField
-          control={form.control}
-          name="password"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Password</FormLabel>
-              <FormControl>
-                <Input {...field} type="password" placeholder="Enter your password" className="bg-gray-800 text-white border-gray-700" />
-              </FormControl>
-              <FormMessage className="text-crimson" />
-            </FormItem>
-          )}
-        />
+          <FormField
+            control={form.control}
+            name="password"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-crimson">Password</FormLabel>
+                <FormControl>
+                  <Input {...field} type="password" placeholder="Enter your password" className="bg-gray-800 text-white border-gray-700" />
+                </FormControl>
+                <FormMessage className="text-crimson" />
+              </FormItem>
+            )}
+          />
 
-        {error && <p className="text-crimson text-center">{error}</p>}
-        <Button type="submit" className="w-full bg-crimson text-white rounded-full transition-all hover:scale-105 active:bg-crimson-dark active:scale-100">
-          Log In
-        </Button>
-      </form>
-    </Form>
+          {error && <p className="text-crimson text-center">{error}</p>}
+          <Button type="submit" className="w-full bg-crimson text-white rounded-full transition-all hover:scale-105 active:bg-crimson-dark active:scale-100">
+            Log In
+          </Button>
+        </form>
+      </Form>
+    </div>
   );
 }

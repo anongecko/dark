@@ -10,7 +10,9 @@ export const metadata: Metadata = {
 export default function SignInPage() {
   return (
     <AuthLayout>
-      <SignInForm /> 
+      <div className="flex justify-center items-center h-screen">
+        <SignInForm />
+      </div>
     </AuthLayout>
   );
 }

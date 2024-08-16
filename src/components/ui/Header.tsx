@@ -4,6 +4,7 @@ import React, { useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
+import { XMRPriceDisplay } from './XMRPriceDisplay';
 
 // Export the Header component
 export function Header() {
@@ -23,7 +24,7 @@ export function Header() {
             <span className="text-2xl font-bold text-primary">DarkGPT</span>
           </Link>
         </div>
-        <nav className="flex-1 flex justify-center space-x-6">
+        <nav className="flex-1 flex justify-center space-x-6 self-center mx-auto">
           <button
             onClick={() => scrollToSection('about')}
             aria-label="Go to About Us section"
@@ -61,6 +62,7 @@ export function Header() {
           </button>
         </nav>
         <div className="flex items-center space-x-4">
+          <XMRPriceDisplay />
           <Link href="/sign-in">
             <Button variant="outline" className="rounded-full flex justify-center items-center">
               Sign In
