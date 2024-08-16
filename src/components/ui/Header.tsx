@@ -6,7 +6,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { XMRPriceDisplay } from './XMRPriceDisplay';
 
-// Export the Header component
 export function Header() {
   const scrollToSection = useCallback((id: string) => {
     const element = document.getElementById(id);
@@ -17,14 +16,17 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 hero-background backdrop-blur-sm">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between relative">
+        {/* Logo (Left Side) */}
         <div className="flex items-center space-x-2">
           <Image src="/logo.svg" alt="DarkGPT Logo" width={40} height={40} />
           <Link href="/">
             <span className="text-2xl font-bold text-primary">DarkGPT</span>
           </Link>
         </div>
-        <nav className="flex-1 flex justify-center space-x-6 self-center mx-auto">
+
+        {/* Navigation (Centered) */}
+        <nav className="absolute left-1/2 transform -translate-x-1/2 flex space-x-6">
           <button
             onClick={() => scrollToSection('about')}
             aria-label="Go to About Us section"
@@ -47,21 +49,30 @@ export function Header() {
             Capabilities
           </button>
           <button
-            onClick={() => scrollToSection('principles')}
-            aria-label="Go to Principles section"
+            onClick={() => scrollToSection('pricing')}
+            aria-label="Go to Pricing section"
             className="text-foreground/80 hover:text-foreground transition-colors"
           >
-            Principles
+            Pricing
+          </button>
+          <button
+            onClick={() => scrollToSection('faq')}
+            aria-label="Go to FAQ section"
+            className="text-foreground/80 hover:text-foreground transition-colors"
+          >
+            FAQ
           </button>
           <button
             onClick={() => scrollToSection('contact')}
             aria-label="Go to Contact Us section"
             className="text-foreground/80 hover:text-foreground transition-colors"
           >
-            Contact Us
+            Contact
           </button>
         </nav>
-        <div className="flex items-center space-x-4">
+
+        {/* Right Side (XMR Price and Buttons) */}
+        <div className="flex items-center space-x-3">
           <XMRPriceDisplay />
           <Link href="/sign-in">
             <Button variant="outline" className="rounded-full flex justify-center items-center">
